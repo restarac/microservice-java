@@ -10,8 +10,6 @@ public class VersionsAcceptable {
 	public static final String INITIAL_VERSION = HEADER_NAME + "=1";
 	
 	public static final String V2 = HEADER_NAME + "=2";
-	
-	public static final String CHANGE_SERVER1_SCHEMA = HEADER_NAME + "=3";
 
 	private VersionsAcceptable() {
 	}

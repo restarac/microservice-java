@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'microservice-java'
+rootProject.name = 'microservice-bff'
