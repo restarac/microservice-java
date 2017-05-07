@@ -6,22 +6,55 @@
  * user guide available at https://docs.gradle.org/3.4.1/userguide/java_library_plugin.html
  */
 
-// Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
-apply plugin: 'eclipse'
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+	}
+}
 
-// In this section you declare where to find the dependencies of your project
+
+plugins {
+    id 'org.springframework.boot' version '1.5.3.RELEASE'
+    id 'eclipse'
+    id 'java-library'
+    id 'war'
+}
+// ------- springboot --------
+
+bootRepackage {
+    mainClass = 'hello..main.BootApplication'
+}
+bootRun {
+    addResources = true
+}
+springBoot {
+    backupSource = false
+}
+
+// ---------------------------
+
+
+
+war {
+    baseName = 'myapp'
+    version =  '0.1.0'
+}
+
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     mavenLocal()
     jcenter()
+    maven { url "http://repo.spring.io/libs-snapshot" }
     mavenCentral()
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE"
 
+    compile("org.springframework.boot:spring-boot-starter-web")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
 
