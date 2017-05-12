@@ -9,7 +9,17 @@ import hello.filter.versions.VersionsAcceptable;
 public class SampleController {
 
 	@RequestMapping("/")
-	String version3OrGreater() {
+	String version5OrGreater() {
+		return "Hello World! May this is V3 or greater";
+	}
+
+	@RequestMapping(value = "/", headers = VersionsAcceptable.V4)
+	String version4() {
+		return "Hello World! May this is V3 or greater";
+	}
+	
+	@RequestMapping(value = "/", headers = VersionsAcceptable.V3)
+	String version3() {
 		return "Hello World! May this is V3 or greater";
 	}
 

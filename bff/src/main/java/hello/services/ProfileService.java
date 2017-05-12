@@ -7,7 +7,7 @@ import hello.services.models.profile.Profile;
 
 @Service
 public class ProfileService {
-    private static final String PROFILE_HOST = "http://localhost:3000";
+    private static final String PROFILE_HOST = "http://localhost:3002";
 	private final RestTemplate restTemplate;
 	
     public ProfileService(RestTemplate restTemplate) {

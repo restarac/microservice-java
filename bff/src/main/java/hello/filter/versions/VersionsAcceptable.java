@@ -11,6 +11,9 @@ public class VersionsAcceptable {
 	
 	public static final String V2 = HEADER_NAME + "=2";
 
+	public static final String V3 = HEADER_NAME + "=3";
+	public static final String V4 = HEADER_NAME + "=4";
+
 	private VersionsAcceptable() {
 	}
 }
