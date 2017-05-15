@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Profile {
 
 	private Integer id;
@@ -14,7 +16,9 @@ public class Profile {
 	private List<String> breadcrumb = null;
 	private User user;
 	private Integer unreadLeads;
-	private Links links;
+	private String cellphone;
+	@JsonProperty("_links")
+	private Map<String, Link> links;
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	public Integer getId() {
@@ -81,11 +85,11 @@ public class Profile {
 		this.unreadLeads = unreadLeads;
 	}
 
-	public Links getLinks() {
+	public Map<String, Link> getLinks() {
 		return links;
 	}
 
-	public void setLinks(Links links) {
+	public void setLinks(Map<String, Link> links) {
 		this.links = links;
 	}
 
@@ -95,6 +99,14 @@ public class Profile {
 
 	public void setAdditionalProperty(String name, Object value) {
 		this.additionalProperties.put(name, value);
+	}
+
+	public String getCellphone() {
+		return cellphone;
+	}
+
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
 	}
 
 }
